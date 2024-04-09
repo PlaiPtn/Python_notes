@@ -5,8 +5,10 @@ class View:
         self.dict_commands = get_commands()
 
     def run(self):
-        print("Список команд:")
-        for k, v in self.dict_commands.items():
-            print(f"{k} - {v}")
-        input_command(int(input("Введите номер команды:")))
+        flag = True
+        while flag:
+            print("Список команд:")
+            for k, v in self.dict_commands.items():
+                print(f"{k} - {v[0]}")
+            print(input_command(int(input("Введите номер команды:\n"))))
 
