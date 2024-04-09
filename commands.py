@@ -1,25 +1,30 @@
-import json_structure
+from workWithFile import workWithFile
+import datetime
+import json
 
 
 class Commands:
     def __init__(self):
-        self.__dict_commands = {1: ["Создать новую заметку", self.record_note],
-                                2: ["Читать все заметки", self.read_notes],
-                                3: ["Редактирование заметки", self.edit_note],
-                                4: ["Удаление заметки", self.del_note]}
+        self.json_data = workWithFile()
+        self.__dict_commands = {1: "Создать новую заметку",
+                                2: "Читать все заметки",
+                                3: "Редактирование заметки",
+                                4: "Удаление заметки"}
 
-    def record_note(self):
-        print(1111)
+    def write_note(self):
+        header = input("Введите заголовок заметки: ")
+        body = input("Введите текст заметки: ")
+        self.json_data.write_json(header, body)
 
     def read_notes(self):
-        pass
+        self.json_data.read_json()
 
     def edit_note(self):
-        pass
+        id = input("Введите Id заметки которую хотите изменить")
 
     def del_note(self):
         pass
 
     @property
-    def dict_commands(self):
+    def get_dict_commands(self):
         return self.__dict_commands
