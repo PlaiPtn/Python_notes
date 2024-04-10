@@ -12,7 +12,7 @@ class WorkWithFile:
             self._last_id = 0
 
     def write_json(self, dict_nodes):
-        with open("notesData/notes_book.json", 'w', encoding="utf-8",) as file:
+        with open("notesData/notes_book.json", 'w', encoding="utf-8", ) as file:
             json.dump(dict_nodes, file)
 
     def get_data(self):
